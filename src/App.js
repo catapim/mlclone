@@ -23,6 +23,7 @@ class App extends Component {
     }
     this.handlerOnClick = this.handlerOnClick.bind(this);
     this.incrementaNumero = this.incrementaNumero.bind(this);
+    this.decrementaNumero = this.decrementaNumero.bind(this);
   }
 
   handlerOnClick(){
@@ -33,12 +34,18 @@ class App extends Component {
     this.setState ({numeroInicial : this.state.numeroInicial+1});
   }
 
+  decrementaNumero(){
+    this.setState ({numeroInicial : this.state.numeroInicial-1});
+  }
+
+
+
   render() {
     return (
       <div className="App">
         
         <p onClick={this.incrementaNumero}>{this.state.numeroInicial}</p>
-        
+        <button onClick={this.decrementaNumero}>baja numero</button>
         
       </div>
     );

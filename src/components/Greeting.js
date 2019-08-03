@@ -8,7 +8,7 @@ class Greeting extends Component {
 
     render(){
         return (
-            <h1 style={this.props.h1Style}>
+            <h1>
                 hola soy greeting, {this.formatUsername(this.props.firstName,this.props.lastName)}!
             </h1>
         )

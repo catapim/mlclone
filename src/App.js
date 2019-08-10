@@ -9,12 +9,20 @@ class App extends Component {
     super(props);
 
     this.state = {
+      //se pone un query para consultar api
+      query: "iphone",
       items: []
     }
   }
 
+  //se hace post hacia la api con el query iphone
   componentDidMount(){
-    
+    axios.post(`https://api.mercadolibre.com/sites/MLC/search?q={query}`)
+    .then(response => {
+      console.log(response);
+      console.log(response.data);
+
+    })
   }
   /*
     Actividad Nº 2

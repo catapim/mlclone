@@ -17,13 +17,16 @@ class App extends Component {
 
   //se hace post hacia la api con el query iphone
   componentDidMount(){
-    axios.get(`https://api.mercadolibre.com/sites/MLC/search?q={state.query}`)
-    .then(response => {
-      console.log(response);
-      console.log(response.data);
 
-    })
-  }
+      axios.post('https://api.mercadolibre.com/sites/MLC/search?q=', this.state.query)
+        .then(response => {
+          console.info(response);
+          console.info(response.data);
+          if (response.status === 200) {
+            this.setState({message: 'creado correcta', data: response.data })
+          }
+        });
+      }
   /*
     Actividad Nº 2
 

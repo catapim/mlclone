@@ -5,7 +5,7 @@ import './App.scss';
 // import Avatar from './components/Avatar';
 // import Greeting from './components/Greeting';
 import Counter from './components/Counter';
-
+import Button from './components/Button';
 
 const user = {
     firstName: "catalina",
@@ -21,13 +21,13 @@ class App extends Component {
         numeroInicial : 0  
       };  
     }
+
     this.handlerOnClick = this.handlerOnClick.bind(this);
     this.incrementaNumero = this.incrementaNumero.bind(this);
     this.decrementaNumero = this.decrementaNumero.bind(this);
   }
 
   handlerOnClick(){
-    
   }
 
   incrementaNumero() {
@@ -38,15 +38,15 @@ class App extends Component {
     this.setState ({numeroInicial : this.state.numeroInicial-1});
   }
 
-
-
   render() {
     return (
-      <div className="App">
-        
-        <p onClick={this.incrementaNumero}>{this.state.numeroInicial}</p>
-        <button onClick={this.decrementaNumero}>baja numero</button>
-        
+      <div className="App">        
+      <Button></Button>
+
+
+        <p>{this.state.numeroInicial}</p>
+        <button onClick={this.incrementaNumero}>sube numero</button>
+        <button onClick={this.decrementaNumero}>baja numero</button>        
       </div>
     );
   }

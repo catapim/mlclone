@@ -23,7 +23,7 @@ class App extends Component {
           console.info(response);
           console.info(response.data);
           if (response.status === 200) {
-            this.setState({message: 'creado correcta', data: response.data })
+            this.setState({message: 'busqueda OK', data: response.data })
           }
         });
       }

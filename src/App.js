@@ -13,11 +13,13 @@ class App extends Component {
       query: "iphone",
       items: []
     }
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleSearchInput = this.handleSearchInput.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   //se hace post hacia la api con el query iphone
-  componentDidMount(){
-
+  handleSearch(){
       axios.post('https://api.mercadolibre.com/sites/MLC/search?q=', this.state.query)
         .then(response => {
           console.info(response);
@@ -26,7 +28,15 @@ class App extends Component {
             this.setState({message: 'busqueda OK', data: response.data })
           }
         });
+        console.log('submit');
       }
+
+      handleSearchInput(){
+        this.setState({product: event.target.value})
+
+      }
+      handleSubmit(e){
+        e.preventDefault();      }
   /*
     Actividad Nº 2
 
@@ -45,23 +55,18 @@ class App extends Component {
     return (
       <div className="App">
         <div className="nav-header">
-          { /* Aqui formulario buscador */ }
         </div>
-        <List></List>
 
-        <form>
+        <form onSubmit={this.handleSubmit}>
             <label>
               Product: 
             </label>
-            <input type="text" placeholder="write product here">
+            <input onChange={this.handleSearchInput} type="text" placeholder="write product here">
             </input>
-            <button>
+            <button onClick={this.handleSearch}>
               Search
             </button>
         </form>        
-
-        {/* items.map(item => (<TuComponenteFila />)) */}
-        
       </div>
     );
   }

@@ -6,6 +6,7 @@ import './App.scss';
 // import Greeting from './components/Greeting';
 import Counter from './components/Counter';
 import Button from './components/Button';
+import Greeting from './components/Greeting';
 
 const user = {
     firstName: "catalina",
@@ -25,6 +26,8 @@ class App extends Component {
     this.handlerOnClick = this.handlerOnClick.bind(this);
     this.incrementaNumero = this.incrementaNumero.bind(this);
     this.decrementaNumero = this.decrementaNumero.bind(this);
+    this.resetNumero = this.numeroInicial=0;
+
   }
 
   handlerOnClick(){
@@ -38,15 +41,47 @@ class App extends Component {
     this.setState ({numeroInicial : this.state.numeroInicial-1});
   }
 
+  resetNumero() {
+    this.setState({
+      numeroInicial: 0
+    });
+  };
+
   render() {
+
+    const buttonUp = {
+      backgroundColor: "pink",
+      color: "white",
+      padding: "12px",
+      textTransform: "uppercase",
+      margin: "5px"
+    }
+    const buttonDown = {
+      backgroundColor: "purple",
+      color: "white",
+      padding: "12px",
+      textTransform: "uppercase",
+      margin: "5px"
+    }
+    const buttonReset = {
+      backgroundColor: "red",
+      color: "white",
+      padding: "12px",
+      textTransform: "uppercase",
+      margin: "5px"
+    }
+    const numberTarget = {
+      fontSize: "23px",
+      fontFamily: "sans-serif",
+      color: "green"
+    }
+
     return (
       <div className="App">        
-      <Button></Button>
-
-
-        <p>{this.state.numeroInicial}</p>
-        <button onClick={this.incrementaNumero}>sube numero</button>
-        <button onClick={this.decrementaNumero}>baja numero</button>        
+        <p style={numberTarget}>{this.state.numeroInicial}</p>
+        <button style={buttonUp} onClick={this.incrementaNumero}>sube numero</button>
+        <button style={buttonDown} onClick={this.decrementaNumero}>baja numero</button>      
+        <button style={buttonReset} onClick={this.resetNumero}>reset</button>  
       </div>
     );
   }

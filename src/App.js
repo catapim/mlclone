@@ -12,6 +12,10 @@ class App extends Component {
       items: []
     }
   }
+
+  componentDidMount(){
+    
+  }
   /*
     Actividad Nº 2
 
@@ -32,6 +36,7 @@ class App extends Component {
         <div className="nav-header">
           { /* Aqui formulario buscador */ }
         </div>
+        <List></List>
 
         <form>
             <label>

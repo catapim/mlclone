@@ -17,7 +17,7 @@ class App extends Component {
 
   //se hace post hacia la api con el query iphone
   componentDidMount(){
-    axios.post(`https://api.mercadolibre.com/sites/MLC/search?q={query}`)
+    axios.get(`https://api.mercadolibre.com/sites/MLC/search?q={state.query}`)
     .then(response => {
       console.log(response);
       console.log(response.data);

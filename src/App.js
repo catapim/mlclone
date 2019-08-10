@@ -8,12 +8,6 @@ import Counter from './components/Counter';
 import Button from './components/Button';
 import Greeting from './components/Greeting';
 
-const user = {
-    firstName: "catalina",
-    lastName: "pim",
-    avatar: 'https://i.pinimg.com/originals/3e/f2/ee/3ef2eed0fa4f1b5b0e3e00c3330b44bb.jpg',
-};
-
 class App extends Component {
 
   constructor(props) {
@@ -26,7 +20,7 @@ class App extends Component {
     this.handlerOnClick = this.handlerOnClick.bind(this);
     this.incrementaNumero = this.incrementaNumero.bind(this);
     this.decrementaNumero = this.decrementaNumero.bind(this);
-    this.resetNumero = this.numeroInicial=0;
+    this.resetNumero = this.resetNumero.bind(this);
 
   }
 
@@ -39,7 +33,7 @@ class App extends Component {
 
   decrementaNumero(){
     this.setState ({numeroInicial : this.state.numeroInicial-1});
-  }
+  };
 
   resetNumero() {
     this.setState({

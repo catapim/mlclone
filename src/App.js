@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import './App.scss';
 import axios from 'axios';
+import List from '../components/List';
 
 class App extends Component {
   constructor(props) {
@@ -31,7 +32,17 @@ class App extends Component {
         <div className="nav-header">
           { /* Aqui formulario buscador */ }
         </div>
-        
+
+        <form>
+            <label>
+              Product: 
+            </label>
+            <input type="text" placeholder="write product here">
+            </input>
+            <button>
+              Search
+            </button>
+        </form>        
 
         {/* items.map(item => (<TuComponenteFila />)) */}
         

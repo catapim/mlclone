@@ -1,81 +1,55 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import './App.scss';
-// al imoportar luego de from va la ruta
-// import Avatar from './components/Avatar';
-// import Greeting from './components/Greeting';
-import Counter from './components/Counter';
-import Button from './components/Button';
-import Greeting from './components/Greeting';
+import axios from 'axios';
+import List from '../components/List';
 
 class App extends Component {
-
   constructor(props) {
-    super(props); {
-      this.state = {
-        numeroInicial : 0  
-      };  
+    super(props);
+
+    this.state = {
+      items: []
     }
-
-    this.handlerOnClick = this.handlerOnClick.bind(this);
-    this.incrementaNumero = this.incrementaNumero.bind(this);
-    this.decrementaNumero = this.decrementaNumero.bind(this);
-    this.resetNumero = this.resetNumero.bind(this);
-
   }
 
-  handlerOnClick(){
+  componentDidMount(){
+    
   }
-
-  incrementaNumero() {
-    this.setState ({numeroInicial : this.state.numeroInicial+1});
-  }
-
-  decrementaNumero(){
-    this.setState ({numeroInicial : this.state.numeroInicial-1});
-  };
-
-  resetNumero() {
-    this.setState({
-      numeroInicial: 0
-    });
-  };
+  /*
+    Actividad Nº 2
+    - Crear buscador de productos utilizando la api de Mercado Libre
+    - usar Axios para hacer una llamada a https://api.mercadolibre.com/sites/MLC/search?q={query}
+    - Donde query es obtenido por medio input de tipo text (componente controlado)
+    - Tomar los items de los resultados de busqueda y guardar en el state items
+    - Pintar los resultados de busqueda como una lista.
+    - Utiliza como ejemplo el formato de los rows de los resultados de busqueda (https://listado.mercadolibre.cl/iphone)
+    - Cada fila debe contener imagen del producto, titulo y precio
+    - Agregar dentro del .nav-header el logo (https://http2.mlstatic.com/ui/navigation/4.5.0/mercadolibre/logo__large_plus@2x.png)
+  */
 
   render() {
-
-    const buttonUp = {
-      backgroundColor: "pink",
-      color: "white",
-      padding: "12px",
-      textTransform: "uppercase",
-      margin: "5px"
-    }
-    const buttonDown = {
-      backgroundColor: "purple",
-      color: "white",
-      padding: "12px",
-      textTransform: "uppercase",
-      margin: "5px"
-    }
-    const buttonReset = {
-      backgroundColor: "red",
-      color: "white",
-      padding: "12px",
-      textTransform: "uppercase",
-      margin: "5px"
-    }
-    const numberTarget = {
-      fontSize: "23px",
-      fontFamily: "sans-serif",
-      color: "green"
-    }
-
+    const {items} = this.state;
     return (
-      <div className="App">        
-        <p style={numberTarget}>{this.state.numeroInicial}</p>
-        <button style={buttonUp} onClick={this.incrementaNumero}>sube numero</button>
-        <button style={buttonDown} onClick={this.decrementaNumero}>baja numero</button>      
-        <button style={buttonReset} onClick={this.resetNumero}>reset</button>  
+      <div className="App">
+        <div className="nav-header">
+          { /* Aqui formulario buscador */ }
+        </div>
+        <List></List>
+
+        <form>
+            <label>
+              Product: 
+            </label>
+            <input type="text" placeholder="write product here">
+            </input>
+            <button>
+              Search
+            </button>
+        </form>        
+
+        {/* items.map(item => (<TuComponenteFila />)) */}
+        
       </div>
     );
   }

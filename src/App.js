@@ -22,7 +22,9 @@ class App extends Component {
     this.state = {
       //se pone un query para consultar api
       query: "iphone",
-      items: []
+      items: [],
+      data: [],
+      results: []
     }
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSearchInput = this.handleSearchInput.bind(this);
@@ -37,32 +39,34 @@ class App extends Component {
           .then(response => {
           console.info(response);
           console.info(response.data);
+
           if (response.status == 200) {
-            this.setState({message: 'busqueda OK', data: response.data })
+            console.log(response.data);
+            this.setState({message: 'busqueda OK', results: response.data.results })
           }
         });
         console.log('submit');
 
+
       }
 
-      handleSearchInput(){
+      handleSearchInput(event){
         this.setState({product: event.target.value})
 
       }
       handleSubmit(event){
         event.preventDefault(this.handleSearch);    
-      }
+      } 
 
-
-
-  
 
 
   render() {
+    let items = this.state.results.map((item, key) =>
+        <li>{item.title}</li>
+    );
     return (
       <div className="App">
         <div className="nav-header">
-        </div>
 
         <form onSubmit={this.handleSubmit}>
             <label>
@@ -73,7 +77,16 @@ class App extends Component {
             <button onClick={this.handleSearch}>
               Search
             </button>
-        </form>        
+        </form>   
+        </div>
+        <div className="body">
+        {this.state.products}
+        <ul>
+          {items}
+        </ul>
+
+        </div>
+     
       </div>
     );
   }

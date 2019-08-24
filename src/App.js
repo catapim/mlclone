@@ -2,14 +2,9 @@ import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import './App.scss';
 import axios from 'axios';
-// import List from '../components/List';
 
   /*
     Actividad Nº 2
-<<<<<<< HEAD
-=======
-
->>>>>>> eb66f45136c13e94375b4d5dac03bc993b21e337
     - Crear buscador de productos utilizando la api de Mercado Libre
     - usar Axios para hacer una llamada a https://api.mercadolibre.com/sites/MLC/search?q={query}
     - Donde query es obtenido por medio input de tipo text (componente controlado)

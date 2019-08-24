@@ -49,7 +49,8 @@ class App extends Component {
 
       }
       handleSubmit(e){
-        e.preventDefault();      
+        e.preventDefault();    
+        this.handleSearch(); 
       }
 
   render() {

@@ -20,7 +20,6 @@ class App extends Component {
     super(props);
 
     this.state = {
-      //se pone un query para consultar api
       query: "iphone",
       items: [],
       data: [],
@@ -46,8 +45,6 @@ class App extends Component {
           }
         });
         console.log('submit');
-
-
       }
 
       handleSearchInput(event){
@@ -61,17 +58,14 @@ class App extends Component {
 
 
   render() {
-    
+    //itera sobre array de objetos
     let items = this.state.results.map((item, key) =>
     <div>
-        <p>{item.title}</p>
+        <h3>{item.title}</h3>
         <img src={item.thumbnail}></img>
-        <h3>$ {item.price} CLP</h3>
+        <h4>$ {item.price} CLP</h4>
     </div>
-        
     );
-
-
 
     return (
       <div className="App">

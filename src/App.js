@@ -29,10 +29,12 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
   //se hace post hacia la api con el query iphone
   handleSearch(){
-      axios.post('https://api.mercadolibre.com/sites/MLC/search?q=', this.state.query)
-        .then(response => {
+    let url=`https://api.mercadolibre.com/sites/MLC/search?q=${this.state.query}`
+    axios.get(url)
+          .then(response => {
           console.info(response);
           console.info(response.data);
           if (response.status == 200) {
@@ -40,19 +42,23 @@ class App extends Component {
           }
         });
         console.log('submit');
+
       }
 
       handleSearchInput(){
         this.setState({product: event.target.value})
 
       }
-      handleSubmit(e){
-        e.preventDefault();    
-        this.handleSearch(); 
+      handleSubmit(event){
+        event.preventDefault(this.handleSearch);    
       }
 
+
+
+  
+
+
   render() {
-    const {items} = this.state;
     return (
       <div className="App">
         <div className="nav-header">

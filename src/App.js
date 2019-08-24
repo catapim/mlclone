@@ -61,30 +61,33 @@ class App extends Component {
 
 
   render() {
+    
     let items = this.state.results.map((item, key) =>
-        <li>{item.title}</li>
+    <div>
+        <p>{item.title}</p>
+        <img src={item.thumbnail}></img>
+        <h3>$ {item.price} CLP</h3>
+    </div>
+        
     );
+
+
+
     return (
       <div className="App">
         <div className="nav-header">
-
         <form onSubmit={this.handleSubmit}>
-            <label>
-              Product: 
-            </label>
-            <input onChange={this.handleSearchInput} type="text" placeholder="write product here">
-            </input>
-            <button onClick={this.handleSearch}>
-              Search
-            </button>
+            <label>Product:</label>
+            <input onChange={this.handleSearchInput} type="text" placeholder="write product here"></input>
+            <button onClick={this.handleSearch}>Search</button>
         </form>   
         </div>
-        <div className="body">
-        {this.state.products}
-        <ul>
-          {items}
-        </ul>
 
+        <div className="body">
+          {this.state.products}
+          <ul>
+              {items}
+          </ul>
         </div>
      
       </div>
